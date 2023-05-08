@@ -73,6 +73,7 @@ int main(int argc, char *argv[])
     stateType state;
     FILE *filePtr;
     int executedInstCount;
+    int i;
 
     if (argc != 2) {
         printf("error: usage: %s <machine-code file>\n", argv[0]);
@@ -95,6 +96,10 @@ int main(int argc, char *argv[])
             exit(1);
         }
         printf("memory[%d]=%d\n", state.numMemory, state.mem[state.numMemory]);
+    }
+
+    for (i = 0; i < NUMREGS; i++) {
+        state.reg[i] = 0;
     }
 
 		/* TODO: */
